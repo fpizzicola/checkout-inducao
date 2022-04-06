@@ -1,18 +1,22 @@
-package entities;
+package entities.response;
 
 public class Response {
 
   private Object body;
 
-  private int statusCode;
+  private Integer statusCode;
 
   private String message;
 
-  public Response() {
-  }
+  public Response() {}
 
   public Response(Object body) {
     this.body = body;
+  }
+
+  public Response(Object body, Integer statusCode) {
+    this.body = body;
+    this.statusCode = statusCode;
   }
 
   public Object getBody() {
@@ -23,11 +27,11 @@ public class Response {
     this.body = body;
   }
 
-  public void setStatusCode(int statusCode) {
+  public void setStatusCode(Integer statusCode) {
     this.statusCode = statusCode;
   }
 
-  public int getStatusCode() {
+  public Integer getStatusCode() {
     return statusCode;
   }
 
