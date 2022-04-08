@@ -11,7 +11,7 @@ repositories {
 
 dependencies {
     implementation('com.mercadopago:sdk-java:2.0.0') {
-        exclude group:'org.sonatype.sisu', module: 'sisu-guice'
+        exclude group: 'org.sonatype.sisu', module: 'sisu-guice'
     }
     implementation 'org.sonatype.sisu:sisu-guice:3.1.0'
 

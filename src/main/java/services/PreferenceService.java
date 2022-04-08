@@ -57,7 +57,7 @@ public class PreferenceService extends BaseService {
     }
   }
 
-  public Object retrieve(String preferenceId) throws MPException, MPApiException {
+  public Preference retrieve(String preferenceId) throws MPException, MPApiException {
     PreferenceClient client = new PreferenceClient();
     try {
       return client.get(preferenceId);
