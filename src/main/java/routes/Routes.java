@@ -14,7 +14,8 @@ import transformers.JsonTransformer;
 import transformers.ObjectTransformer;
 
 public class Routes {
-  public static final String APPLICATION_JSON = "application/json;charset=UTF-8";
+  private static final String APPLICATION_JSON = "application/json;charset=UTF-8";
+  private static final String ID = ":id";
 
 
   public void init() {
@@ -22,12 +23,12 @@ public class Routes {
 
     path("preference", () -> {
       get("/", (req, res) -> new PreferenceService().generate(), new JsonTransformer());
-      get("/:id", (req, res) -> new PreferenceService().retrieve(req.params(":id")), new JsonTransformer());
+      get("/"+ID, (req, res) -> new PreferenceService().retrieve(req.params(ID)), new JsonTransformer());
       post("/", (req, res) -> new PreferenceService().generate(new ObjectTransformer().toObject(req.body(), PreferenceInput.class)), new JsonTransformer());
     });
 
     path("payment", () -> {
-      get("/:id", (req, res) -> new PaymentService().doPayment(req.params(":id")), new JsonTransformer());
+      get("/"+ID, (req, res) -> new PaymentService().doPayment(req.params(ID)), new JsonTransformer());
     });
 
 
